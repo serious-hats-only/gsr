@@ -1,5 +1,12 @@
 const baseURL = 'https://www.giphy.com/search/';
 
+var myVariable = '';
+
+function updateVariable() {
+    var dropdown = document.getElementById('myDropdown');
+    myVariable = dropdown.value;
+}
+
 async function genRandomGif(modifier) {
     let response = await fetch('https://random-word-api.vercel.app/api?words=1')
     let randomWord = await response.text()
