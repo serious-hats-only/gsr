@@ -1,6 +1,6 @@
 const baseURL = 'https://www.giphy.com/search/';
 
-async function genRandomGif() {
+async function genRandomGif(modifier) {
     let response = await fetch('https://random-word-api.vercel.app/api?words=1')
     let randomWord = await response.text()
 
@@ -8,7 +8,7 @@ async function genRandomGif() {
     const cleanedString = randomWord.replace(/\[\s*"/, '');
     const finalString = cleanedString.replace(/"\s*]$/, '');
 
-    const url = baseURL + finalString;
+    const url = baseURL + modifier + "-" + finalString;
   
     open(url);
 }

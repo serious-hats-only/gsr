@@ -5,12 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Giphy Search Randomizer</title>
+    <script>
+        // Declare the global variable
+        var myVariable = '';
+
+        // Function to update the global variable based on dropdown selection
+        function updateVariable() {
+            var dropdown = document.getElementById('myDropdown');
+            myVariable = dropdown.value;
+        }
+    </script>
 </head>
 
 <html>
     <body>
         <script src="js/search.js"></script>
         <h2>Giphy Search Randomizer</h2>
-        <button type="button" onclick="genRandomGif()">Generate</button>
+        <select id="myDropdown" onchange="updateVariable()">
+            <option value="">No Modifiers</option>
+            <option value="weird">Weird</option>
+            <option value="funny">Funny</option>
+          </select>
+          
+          <button type="button" onclick="genRandomGif(myVariable)">Generate</button>
     </body>
 </html>
